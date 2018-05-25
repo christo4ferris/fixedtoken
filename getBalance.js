@@ -9,7 +9,7 @@ var web3 = new Web3(new Web3.providers.HttpProvider(provider));
 var div = Math.pow(10, 18);
 var fixedsupplytokenContract = web3.eth.contract(abi);
 // YOU NEED A CONTRACT ADDRESS HERE FROM deploy.js
-var addr = '0fb2bd4f88c8076f8c2228dcc18f1e5e8b90c431';
+var addr = '0432d8a78e0d1302a4985e01e4e37fd626259909';
 // YOU NEED A REGISTERED FABRIC-EVM ACCOUNT HERE
 var owner = '0x613ac660a26a66a52eadc02cda9f6c7e7326e675';
 var A = '0x537627a1e9456be6fc015800d23cf91a93555fe6';
@@ -18,7 +18,7 @@ var C = '0x861256673241f8a9e3b086b1b01e76143253c8fc';
 web3.eth.defaultAccount = owner;
 
 function balance(acct) {
-  var bal = myContract.balanceOf(acct).toFixed() / div;
+  var bal = web3.fromWei(myContract.balanceOf(acct), 'ether');
   console.log("Balance of " + acct + " = " + bal.toLocaleString('en'));
 }
 
@@ -28,12 +28,12 @@ console.log("Owner: " + myContract.owner());
 console.log("Symbol: " + myContract.symbol());
 
 balance(web3.eth.defaultAccount);
-myContract.transfer(B, 100 * div);
+myContract.transfer(B, web3.toWei(100, 'ether'));
 // now transfer some tokens from B to A
 web3.eth.defaultAccount = B;
-myContract.transfer(A, 20 * div);
+myContract.transfer(A, web3.toWei(20, 'ether'));
 web3.eth.defaultAccount = A;
-myContract.transfer(C, 10 * div);
+myContract.transfer(C, web3.toWei(10, 'ether'));
 balance(owner);
 balance(A);
 balance(B);
