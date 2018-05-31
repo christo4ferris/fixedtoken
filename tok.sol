@@ -117,7 +117,7 @@ contract SimpleToken is ERC20Interface, Owned, SafeMath {
         name = "Simple Token";
         decimals = 18;
         _totalSupply = 100000000000000000000000000;
-        balances[0x613ac660a26a66a52eadc02cda9f6c7e7326e6752] = _totalSupply;
+        balances[0x613ac660a26a66a52eadc02cda9f6c7e7326e675] = _totalSupply;
         Transfer(address(0), 0x613ac660a26a66a52eadc02cda9f6c7e7326e675, _totalSupply);
     }
 

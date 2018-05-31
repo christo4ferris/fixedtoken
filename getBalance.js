@@ -9,7 +9,7 @@ var web3 = new Web3(new Web3.providers.HttpProvider(provider));
 var div = Math.pow(10, 18);
 var fixedsupplytokenContract = web3.eth.contract(abi);
 // YOU NEED A CONTRACT ADDRESS HERE FROM deploy.js
-var addr = '0432d8a78e0d1302a4985e01e4e37fd626259909';
+var addr = 'fcfec81c6e57a4461df1dadd475ea99db8258a90';
 // YOU NEED A REGISTERED FABRIC-EVM ACCOUNT HERE
 var owner = '0x613ac660a26a66a52eadc02cda9f6c7e7326e675';
 var A = '0x537627a1e9456be6fc015800d23cf91a93555fe6';
